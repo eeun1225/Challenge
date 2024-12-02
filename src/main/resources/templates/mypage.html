@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+<div class="container">
+    <div th:if="${member != null}">
+        <h1 class="display-5 fw-bold">마이페이지</h1>
+        <div class="card">
+            <p><strong>아이디:</strong> <span th:text="${member.id}"></span></p>
+            <p><strong>이름:</strong> <span th:text="${member.name}"></span></p>
+            <p><strong>메일:</strong> <span th:text="${member.email}"></span></p>
+            <p><strong>휴대폰 번호:</strong> <span th:text="${member.phone}"></span></p>
+            <p><strong>주소:</strong> <span th:text="${member.address}"></span></p>
+            <p><strong>코인:</strong> <span th:text="${member.coin}"></span></p>
+
+            <div class="btn-container">
+                <a href="/updateMember" class="btn btn-primary">정보 수정</a>
+                <a href="/deleteMember" class="btn btn-danger">회원 탈퇴</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 수정</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+<body>
+<div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">회원 수정</h1>
+            <p class="col-md-8 fs-4">Membership Updating</p>
+        </div>
+    </div>
+    <div class="container">
+        <form th:action="@{/updateMember}" method="post" th:object="${member}">
+            <div class="mb-3 row">
+                <label class="col-sm-2">아이디</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" th:field="*{id}" readonly>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2">비밀번호 확인</label>
+                <div class="col-sm-3">
+                    <input type="password" class="form-control" th:field="*{passwordConfirm}" placeholder="비밀번호 확인">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2">성명</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" th:field="*{name}" placeholder="성명">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2">생년월일</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" th:field="*{birth}" placeholder="YYYY-MM-DD">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2">이메일</label>
+                <div class="col-sm-5">
+                    <input type="email" class="form-control" th:field="*{email}" placeholder="example@example.com">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2">전화번호</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" th:field="*{phone}" placeholder="전화번호">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-2">주소</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" th:field="*{address}" placeholder="주소">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">회원 수정</button>
+                    <form action="/deleteMember" method="post" onsubmit="return confirm('정말로 회원 탈퇴하시겠습니까?');" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">회원 탈퇴</button>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
